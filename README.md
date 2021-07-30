@@ -17,9 +17,17 @@ To add the state electoral votes, I merged a dataframe of the state electoral vo
 
 I then calculated the percent of electoral votes that each candidate received per state. When doing this I split off the whole number (```'vote_int'```) and the remainding fraction (```'vote_frac'```) for use later on. (line 24-26)
 
-After that I needed to allocate any remaining electoral votes. I allocated these to the highest fractional votes, then the next highest, and so on, until no more remaining electoral votes were remaining. To do this, I grouped each state by year using ```groupby```. 
+After that I needed to allocate any remaining electoral votes. I allocated these to the highest fractional votes, then the next highest, and so on, until no more remaining electoral votes were remaining. To do this, I grouped each state by year using ```groupby```. I then looped over each group (state by year) and found the candidates with the highest fractional remainders using ```nlargest``` on the ```vote_frac``` column. This allowed me to allocate the remaining electoral votes to the candidates with the highest fractional votes. I put these results into a dictionary for ease of access.
 
 After this I exported the processed dataframe to a csv file for ease of viewing.
+
+### Conclusions
+
+Before starting the actual analysis and just looking at the data, my hypothesis would be that none of the elections would be overturned and that the gap of electoral votes would narrow in all races. I also hypothesized that third party candidates would capture some electoral votes. 
+
+The advantages of this system are several. First, it allows third party candidates a chance to get some electoral votes. The proportional system makes voting for a third party much less of a "throwaway" vote. While there is still a long way to go before a third party is a legitimate threat to the two party system, the proportional vote makes it a much more likely scenario. 
+
+Secondly, it gives a voice to the minority party in a state. If a state goes 51% towards one party, all those votes go to that party's candidate. Thus the minority party, in this case 49% of the votes, are essentially thrown away and meaningless. 
 
 
 
