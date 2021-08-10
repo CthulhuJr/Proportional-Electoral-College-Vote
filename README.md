@@ -31,6 +31,8 @@ Secondly, it gives a voice to the minority party in a state. If a state goes 51%
 
 An interesting note is that no election would be overturned except perhaps the 2016 election. Even the 2000 Bush versus Gore election allocated proportionally has Bush winning 264 to 263. The only election that would be questionable is the 2016 of Hillary Clinton versus Donald Trump. After allocating out the third party votes (Gary Johnson with 13, Jill Stein with 2, and Evan McMullin with 1) both Clinton and Trump end up with 259. As there is a tie, this [would trigger a vote in the House](https://www.thoughtco.com/when-presidential-election-is-a-tie-3322063) that is frankly out of the realm of scope of this project. 
 
+A proportional electoral system would not immediately drastically alter any results of our electoral system, while simultaneously allowing for more choice in voting outcomes.  
+
 
 
 
