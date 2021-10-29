@@ -15,18 +15,17 @@ electdf = electdf[electdf.candidate != 'WRITE-IN']								#delete rows with vari
 electdf = electdf[electdf.candidate != 'OTHER']
 electdf = electdf[electdf.candidate != 'BLANK VOTE/SCATTERING']
 electdf = electdf[electdf.candidate != 'NOT DESIGNATED']
-
+electdf = electdf[electdf.candidate != 'UNAFFILIATED']
+electdf = electdf[electdf.party_detailed != 'WRITE-IN']
 electdf.loc[:, 'percvotes'] = (electdf['candidatevotes']/electdf['totalvotes'] * 100)
-
 electdf['state'] = electdf['state'].str.upper()									#adjusts state names to match dictionary
 electdf = pd.merge(electdf, statevotesdf, how='left', on=['year', 'state'])
-
 electdf['perc_e_votes'] = (electdf['electoral_votes'] * (electdf['percvotes']/100))
 electdf['vote_frac'] = electdf['perc_e_votes'] % 1
 electdf['vote_int'] = electdf['perc_e_votes'].astype(int)
 
 results = {}
-grouped = electdf.groupby(["year", "state"])									#shows breakdown by each state for each year
+grouped = electdf.groupby(["year", "state"])															#shows breakdown by each state for each year
 for key, group in grouped:
 	year, state = key
 	group['vote_remaining'] = group['electoral_votes'] - group['vote_int'].sum()
@@ -34,7 +33,7 @@ for key, group in grouped:
 	top_fracs = group['vote_frac'].nlargest(remaining)
 	group['total'] = (group['vote_frac'].isin(top_fracs)).astype(int) + group['vote_int'] 
 	if year not in results:
-		results[year] = {} 											#filters out candidates without votes
+		results[year] = {} 															#filters out candidates without votes
 	for candidate, evotes in zip(group['candidate'], group['total']):
 		if candidate not in results[year] and evotes:
 			results[year][candidate] = 0
@@ -43,3 +42,5 @@ for key, group in grouped:
 			
 
 electdf.to_csv("electoral_votes_results.csv")
+
+print(results)													
