@@ -7,8 +7,6 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_rows', None)
 
-
-
 results = {}
 grouped = electdf.groupby(["year", "state"])															#shows breakdown by each state for each year
 for key, group in grouped:
@@ -24,6 +22,5 @@ for key, group in grouped:
 			results[year][candidate] = 0
 		if evotes:
 			results[year][candidate] += evotes
-
 
 print(results)
