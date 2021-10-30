@@ -5,7 +5,7 @@ Electoral data obtained from the [Harvard Dataverse.](https://dataverse.harvard.
 
 The purpose of this project is to determine the results of Presidential elections if the electoral college votes were given out as a proportion of votes cast rather than as a winner-take-all system as exists currently.
 
-Run ```electdf.py``` file first along with the ```states_dict.py``` to process the 1976-2020-president.csv file. 
+Run ```electdf.py``` file first along with the ```states_dict.py``` to process the ```1976-2020-president.csv``` file. 
 
 ### Process
 
